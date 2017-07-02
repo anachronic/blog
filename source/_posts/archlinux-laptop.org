@@ -1,19 +1,20 @@
 #+TITLE: Configuring an Asus Zenbook with Arch Linux
 #+DATE: <2016-09-25 dom 18:10>
-#+TAGS: archlinux linux
+#+TAGS: archlinux,linux
 #+LAYOUT:
 #+CATEGORIES: linux
 
-I recently got my hands on a brand new [[http://www.pcadvisor.co.uk/review/laptops/asus-zenbook-ux303u-review-3632053/][Asus Zenbook UX303]]. And it
+I recently got my hands on a brand new [[http://www.pcadvisor.co.uk/review/laptops/asus-zenbook-ux303u-review-3632053/][Asus Zenbook UX303]] and it
 looks quite nice. So I did the first thing I wanted to do with it
-right away: *Install Arch Lnux*. Yeah, I've been using Arch for quite
+right away: *Install Arch Linux*. Yeah, I've been using Arch for quite
 a bit now on my desktop PC and I fell in love with it from the very
-first time I used it. No PPA nonsense, easy development. Well,
-whatever, we all have our reasons.
+first time I used it. No PPA nonsense, easy development and, to be
+honest, I'm quite used to its workflow.
 
-So I got Arch Linux, made a bootable USB Flash Drive using [[https://rufus.akeo.ie/][Rufus]] and
-started with the installation right away. The installation guide can
-be found on the [[https://wiki.archlinux.org/index.php/installation_guide][Arch Wiki]].
+Since the laptop came bundled with Windows, there was some work to
+do. I downloaded Arch Linux, made a bootable USB Flash Drive using
+[[https://rufus.akeo.ie/][Rufus]] and started with the installation right away. The guide can be
+found on the [[https://wiki.archlinux.org/index.php/installation_guide][Arch Wiki]].
 
 ** UEFI on Arch
 The process is quite straightforward if you read carefully. I got kind
@@ -35,12 +36,12 @@ it. There are some critical extensions that have to be installed to
 make it usable but that's ok. I'll write about it some other time.
 
 Anyway, not everything works out of the box here, most of it is on the
-[[https://wiki.archlinux.org/][ArchWiki]]. I'll explain /my/ process.
+[[https://wiki.archlinux.org/][ArchWiki]]. I'll explain what i went through.
 
 *** WiFi
 WiFi is quite a pain to configure without a GUI. You need sudo and it
 gets kind of annoying. Just install [[https://wiki.archlinux.org/index.php/NetworkManager][NetworkManager]], set it up (in GNOME
-gets as easy as just starting a service) and you should be good to go.
+gets as easy as just starting a service) and be done with it.
 
 *** Bluetooth
 Same thing here. Just [[https://wiki.archlinux.org/index.php/bluetooth][follow the wiki]], install the packages, enable
@@ -51,23 +52,24 @@ with your cellphone. I have a Galaxy A5 2016 and it works flawlessly.
 
 *** The rest
 I had no problems with anything else. The rest of the stuff should
-work out of the box. I'll discuss OS related stuff next.
+work out of the box.
 
-** OS Stuff
+** Hardware
 
 This is the point where things get tricky. It took me quite a while to
 figure these issues out, and thats what made me want to do this post.
 
 *** Keyboard.
 I'm quite fond of the keyboard in this model though it could be nicer
-to have media keys. For me the important stuff is *Screen brightness,
-Keyboard brightness* and *Volume*. I haven't really tested anything
-else.
+to have media keys. While the keyboard in this model has a lot of
+keys, I only find important to be able to control screen brightness,
+keyboard backlight and volume. I haven't really tested anything else.
 
 The Keyboard brightness and Volume keys worked right out of the box
-for me, as did the disable touchpad button. However, the brightness
-keys *do not work out of the box*. It's not so bad though, because
-GNOME's user panel *can* control the screen backlight.
+for me, as did the disable touchpad button. Unfortunately, i can't say
+the same thing about the brightness keys, as they do *not* work out of
+the box. It's not so bad though, because GNOME's user panel *can*
+control the screen backlight, which provides an usable workaround.
 
 I did a little research and it turned out my ACPI was working, it was
 just that the OS couldn't handle the keys. Long story short, adding
@@ -84,8 +86,31 @@ they don't do anything, and =acpi_backlight=none= rebinds everything
 to the =backlight_intel= interface.
 
 *** GPU
-I still have problems with this, but I don't really use my laptop for
-gaming, so there's that. heh.
+GPU is probably the most tricky feature to set up in this model.
 
-*** Some other stuff
-So far these have been the problems I've ran into. I hope to get more things to work. They say you can enhance disk management, but I do believe the battery life if quite good. Also, I have not tested what happens when my battery dies, but if there's something missing about that, write me on any platform.
+[[https://wiki.archlinux.org/index.php/bumblebee][The ArchWiki]] has an article on how to set up Bumblebee in order to get
+the best of both worlds: Integrated graphics and dedicated video
+card. I must say I gave it endless tries to get it working and it -to
+some extent- does work. But only until i close the laptop. It then
+becomes unusable.
+
+I still have problems with this, so i won't be advising on this
+matter. I will say, though, that gaming on a 14 inch laptop is not
+really the best setup. I still have my desktop for that.
+
+*** Battery discharging
+I found out some months after I wrote this post, that nothing gets
+restored after the battery dies.
+
+Honestly I don't really want to test this feature, because bad things
+can happen: my battery can reduce its life or I might not get it to
+work on the first time. I can live with it, though, because the
+battery duration is quite good.
+
+** Conclusion
+
+After months of using this laptop I have to say it is one of the
+smoothest computers I've ever used, it rarely freezes and it doesnt
+really overheat. Trying Linux on this laptop is definetly worth a
+try. I've been using it for around 9 months now and have barely had
+any problems
