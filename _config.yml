@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Developing all over
 subtitle:
-description:
-author: John Doe
+description: Random ramblings about Arch Linux, Emacs and some development ad
+author: anachronic
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://anachronic.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -68,4 +68,14 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:anachronic/anachronic.github.io.git
+  branch: master
+  message:
+
+org:
+  emacs: '/usr/bin/emacs'
+  common: |
+          #+OPTIONS: toc:nil num:nil
+          #+BIND: org-html-postamble
+  cachedir: './hexo-org-cache/'
