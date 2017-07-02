@@ -4,11 +4,11 @@
 
 # Site
 title: Developing all over
-subtitle:
-description: Random ramblings about Arch Linux, Emacs and some development ad
+subtitle: Random ramblings about Arch Linux, Emacs and web development.
+description: A blog about Emacs, Arch Linux and web development.
 author: anachronic
-language:
-timezone:
+language: default
+timezone: America/Santiago
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
