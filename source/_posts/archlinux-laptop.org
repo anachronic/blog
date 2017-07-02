@@ -1,0 +1,91 @@
+#+TITLE: Configuring an Asus Zenbook with Arch Linux
+#+DATE: <2016-09-25 dom 18:10>
+#+TAGS: archlinux linux
+#+LAYOUT:
+#+CATEGORIES: linux
+
+I recently got my hands on a brand new [[http://www.pcadvisor.co.uk/review/laptops/asus-zenbook-ux303u-review-3632053/][Asus Zenbook UX303]]. And it
+looks quite nice. So I did the first thing I wanted to do with it
+right away: *Install Arch Lnux*. Yeah, I've been using Arch for quite
+a bit now on my desktop PC and I fell in love with it from the very
+first time I used it. No PPA nonsense, easy development. Well,
+whatever, we all have our reasons.
+
+So I got Arch Linux, made a bootable USB Flash Drive using [[https://rufus.akeo.ie/][Rufus]] and
+started with the installation right away. The installation guide can
+be found on the [[https://wiki.archlinux.org/index.php/installation_guide][Arch Wiki]].
+
+** UEFI on Arch
+The process is quite straightforward if you read carefully. I got kind
+of stuck at this because, well, I like to do the process fast, but it
+can't always be like that.  *Do /not/ forget to use =gdisk= for GPT
+partitions*.
+
+Also, some little but useful pointers:
+
+- The boot partition has to be /EFI System Partition/, which has code =EF00=.
+- This partition also has to be set to =FAT32=.
+
+The rest is easy, just follow the guide. Nothing out of the
+ordinary. I'm sure people explain this better on youtube.
+
+** GNOME
+I've been using GNOME for quite some time and I'm quite happy with
+it. There are some critical extensions that have to be installed to
+make it usable but that's ok. I'll write about it some other time.
+
+Anyway, not everything works out of the box here, most of it is on the
+[[https://wiki.archlinux.org/][ArchWiki]]. I'll explain /my/ process.
+
+*** WiFi
+WiFi is quite a pain to configure without a GUI. You need sudo and it
+gets kind of annoying. Just install [[https://wiki.archlinux.org/index.php/NetworkManager][NetworkManager]], set it up (in GNOME
+gets as easy as just starting a service) and you should be good to go.
+
+*** Bluetooth
+Same thing here. Just [[https://wiki.archlinux.org/index.php/bluetooth][follow the wiki]], install the packages, enable
+the service. Done.
+
+You might want to get this right in order to share Internet Connection
+with your cellphone. I have a Galaxy A5 2016 and it works flawlessly.
+
+*** The rest
+I had no problems with anything else. The rest of the stuff should
+work out of the box. I'll discuss OS related stuff next.
+
+** OS Stuff
+
+This is the point where things get tricky. It took me quite a while to
+figure these issues out, and thats what made me want to do this post.
+
+*** Keyboard.
+I'm quite fond of the keyboard in this model though it could be nicer
+to have media keys. For me the important stuff is *Screen brightness,
+Keyboard brightness* and *Volume*. I haven't really tested anything
+else.
+
+The Keyboard brightness and Volume keys worked right out of the box
+for me, as did the disable touchpad button. However, the brightness
+keys *do not work out of the box*. It's not so bad though, because
+GNOME's user panel *can* control the screen backlight.
+
+I did a little research and it turned out my ACPI was working, it was
+just that the OS couldn't handle the keys. Long story short, adding
+these options to my kernel made my backlight keys work:
+
+#+BEGIN_SRC
+acpi_osi= acpi_backlight=none
+#+END_SRC
+
+With =systemd-boot=, you have to append the text to the =options=
+line. In my case, it was the file
+=/boot/loader/entries/arch.conf=. =acpi_osi== makes the keys work but
+they don't do anything, and =acpi_backlight=none= rebinds everything
+to the =backlight_intel= interface.
+
+*** GPU
+I still have problems with this, but I don't really use my laptop for
+gaming, so there's that. heh.
+
+*** Some other stuff
+So far these have been the problems I've ran into. I hope to get more things to work. They say you can enhance disk management, but I do believe the battery life if quite good. Also, I have not tested what happens when my battery dies, but if there's something missing about that, write me on any platform.
