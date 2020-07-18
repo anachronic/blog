@@ -1,13 +1,14 @@
-#+TITLE: From Jekyll to Hexo
-#+DATE: <2017-07-02 dom 07:51>
-#+TAGS: blogging,jekyll,hexo,rant,emacs,org-mode
-#+LAYOUT:
-#+CATEGORIES: blogging
+---
+title: From Jekyll to Hexo
+date: <2017-07-02 dom 07:51>
+tags: blogging,jekyll,hexo,rant,emacs,org-mode
+categories: blogging
+---
 
 The idea of having a blog has been in my mind for a long time.
 
 In fact, I had a blog prior to this one, which was built on top of
-[[https://jekyllrb.com/][Jekyll]]. To be honest, I have tried Ruby many times, but have never
+[Jekyll](https://jekyllrb.com/). To be honest, I have tried Ruby many times, but have never
 felt like it was something for me, or maybe I haven't really spent
 enough time to discover what it has to offer.
 
@@ -17,7 +18,7 @@ and mantain, which is why my old blog was left unmantained.
 In this blog post I'll describe some of the features I search for, and
 why I chose Hexo.
 
-** What I'm looking for
+## What I'm looking for
 
 As I said before, I'm not much of a Ruby guy, I spend my days writing
 Javascript and Python for the most part. I've lately become very
@@ -31,13 +32,13 @@ makes it a very versatile markup language for emacs users.
 
 So, in the end, what I wanted was a blogging system that allowed me to
 write my posts in org mode, preferably not having to export it to
-anything, and I wanted this system to *just work*.
+anything, and I wanted this system to _just work_.
 
 Needless to say, Jekyll was not it.
 
-*** Problems
+### Problems
 
-I will say once again that *I'm not a Ruby guy*.
+I will say once again that **I'm not a Ruby guy**.
 
 I'll just list the problems:
 
@@ -51,15 +52,15 @@ My problem was mostly with the second point, because I believe that
 having to mantain two copies of files is a little moronic, to say the
 least.
 
-** The paradigm shift
+## The paradigm shift
 
-This past week, Mike Zamansky released a [[http://cestlaz.github.io/posts/using-emacs-35-blogging/][blog post and video]] on how he
-blogs, explaining why he moved away from Jekyll to [[https://getnikola.com/blog/index.html][Nikola]] and it made
+This past week, Mike Zamansky released a [blog post and video](http://cestlaz.github.io/posts/using-emacs-35-blogging/) on how he
+blogs, explaining why he moved away from Jekyll to [Nikola](https://getnikola.com/blog/index.html) and it made
 so much sense to me, because i was having the same problems with it.
 
 At the same time, on one project I'm working on, we decided to move
 some code away from jQuery to AngularJS, and to manage our
-dependencies with [[https://yarnpkg.com/lang/en/][yarn]]. To be honest, I've never been prone to change,
+dependencies with [yarn](https://yarnpkg.com/lang/en/). To be honest, I've never been prone to change,
 but this change to AngularJS made me think about how the Front-End
 community is gravitating toward Javascript and RESTful services. I
 hear there's even backend servers for Node.JS.
@@ -71,17 +72,17 @@ the most comfortable with.
 And so I thought: yeah, let's ditch Jekyll and let's build something
 on top of Javascript.
 
-I have to say I am *very* comfortable with Python as well, but I feel
+I have to say I am **very** comfortable with Python as well, but I feel
 like I should really get into the Javascript world.
 
 That's when i discovered Hexo. A quick search in Google led me to
-[[https://www.staticgen.com/][StaticGen]], which pointed me to Hexo.
+[StaticGen](https://www.staticgen.com/), which pointed me to Hexo.
 
-** Moving to Hexo
+## Moving to Hexo
 
-[[https://hexo.io/][Hexo]] is a static site generator built on top of Javascript that
+[Hexo](https://hexo.io/) is a static site generator built on top of Javascript that
 provides every feature I ever desired for a static site generator,
-/and more/.
+_and more_.
 
 With it I can:
 
@@ -90,12 +91,12 @@ With it I can:
 - Manage it from Emacs.
 - Learn some Javascript.
 
-And, of course *it doesn't break*.
+And, of course _it doesn't break_.
 
 I'll shortly describe what I've added to Hexo to make it work with
 Emacs and org-mode.
 
-** Emacs workflow
+## Emacs workflow
 
 I'm sure someone else can explain better how to install Hexo, so I
 won't go over that. Instead, I'll describe how to set up org mode and
@@ -103,18 +104,18 @@ Emacs to work with this awesome static site generator
 
 I installed the org mode parser:
 
-#+BEGIN_SRC
+```
 yarn add hexo-renderer-org
-#+END_SRC
+```
 
 Which lets me write every post with org-mode and Hexo will properly
 generate the site without me having to export my org mode files.
 
-And, the one I believe is the killer, is [[https://github.com/kuanyui/hexo.el][hexo.el]], an extension for
+And, the one I believe is the killer, is [hexo.el](https://github.com/kuanyui/hexo.el), an extension for
 Emacs which allows me to manage all of my Hexo site from within
 Emacs. Hell, I don't even need a shell for this now.
 
-** Conclusion
+## Conclusion
 
 While I think I still have some time to get used to this, Hexo looks
 very promising as a static site generator for Emacs users. The worflow
