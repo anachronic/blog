@@ -1,9 +1,6 @@
 // eslint-disable-next-line
 module.exports = {
   root: true,
-  ecmaFeatures: {
-    tsx: true,
-  },
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'prettier'],
   extends: [
@@ -24,5 +21,18 @@ module.exports = {
   env: {
     node: true,
   },
-  ignorePatterns: ['build/**/*.js', 'node_modules/**/*', '**/*.html'],
+  overrides: [
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+  ],
+  ignorePatterns: [
+    'build/**/*.js',
+    'node_modules/**/*',
+    '**/*.html',
+    'graphql-types.ts',
+  ],
 }
