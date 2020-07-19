@@ -1,22 +1,23 @@
 ---
 title: Configuring an Asus Zenbook with Arch Linux
-date: <2016-09-25 dom 18:10>
+date: 2016-09-25
 tags: archlinux,linux
-layout:
 categories: linux
 ---
 
-I recently got my hands on a brand new [asus zenbook ux303](http://www.pcadvisor.co.uk/review/laptops/asus-zenbook-ux303u-review-3632053/) and it
-looks quite nice. So I did the first thing I wanted to do with it
-right away: _Install Arch Linux_. Yeah, I've been using Arch for quite
-a bit now on my desktop PC and I fell in love with it from the very
-first time I used it. No PPA nonsense, easy development and, to be
-honest, I'm quite used to its workflow.
+I recently got my hands on a brand new [asus zenbook
+ux303](http://www.pcadvisor.co.uk/review/laptops/asus-zenbook-ux303u-review-3632053/)
+and it looks quite nice. So I did the first thing I wanted to do with it
+right away: _Install Arch Linux_. Yeah, I've been using Arch for quite a bit
+now on my desktop PC and I fell in love with it from the very first time I
+used it. No PPA nonsense, easy development and, to be honest, I'm quite used
+to its workflow.
 
-Since the laptop came bundled with Windows, there was some work to
-do. I downloaded Arch Linux, made a bootable USB Flash Drive using
-[rufus](https://rufus.akeo.ie/) and started with the installation right away. The guide can be
-found on the [arch wiki](https://wiki.archlinux.org/index.php/installation_guide).
+Since the laptop came bundled with Windows, there was some work to do. I
+downloaded Arch Linux, made a bootable USB Flash Drive using
+[rufus](https://rufus.akeo.ie/) and started with the installation right away.
+The guide can be found on the [arch
+wiki](https://wiki.archlinux.org/index.php/installation_guide).
 
 ## UEFI on Arch
 
@@ -40,18 +41,20 @@ it. There are some critical extensions that have to be installed to
 make it usable but that's ok. I'll write about it some other time.
 
 Anyway, not everything works out of the box here, most of it is on the
-(archwiki)[https://wiki.archlinux.org/]. I'll explain what i went through.
+[archwiki](https://wiki.archlinux.org/). I'll explain what i went through.
 
 ### WiFi
 
-WiFi is quite a pain to configure without a GUI. You need sudo and it
-gets kind of annoying. Just install [networkmanager](https://wiki.archlinux.org/index.php/NetworkManager), set it up (in GNOME
-gets as easy as just starting a service) and be done with it.
+WiFi is quite a pain to configure without a GUI. You need sudo and it gets
+kind of annoying. Just install
+[networkmanager](https://wiki.archlinux.org/index.php/NetworkManager), set it
+up (in GNOME gets as easy as just starting a service) and be done with it.
 
 ### Bluetooth
 
-Same thing here. Just (follow the wiki)[https://wiki.archlinux.org/index.php/bluetooth], install the packages, enable
-the service. Done.
+Same thing here. Just [follow the
+wiki](https://wiki.archlinux.org/index.php/bluetooth), install the packages,
+enable the service. Done.
 
 You might want to get this right in order to share Internet Connection
 with your cellphone. I have a Galaxy A5 2016 and it works flawlessly.
@@ -83,25 +86,26 @@ I did a little research and it turned out my ACPI was working, it was
 just that the OS couldn't handle the keys. Long story short, adding
 these options to my kernel made my backlight keys work:
 
-#+BEGIN_SRC
-acpi_osi= acpi_backlight=none
-#+END_SRC
+```
+acpi_osi=
+acpi_backlight=none
+```
 
-With =systemd-boot=, you have to append the text to the =options=
+With `systemd-boot`, you have to append the text to the =options=
 line. In my case, it was the file
-=/boot/loader/entries/arch.conf=. =acpi_osi== makes the keys work but
-they don't do anything, and =acpi_backlight=none= rebinds everything
-to the =backlight_intel= interface.
+`/boot/loader/entries/arch.conf`. `acpi_osi` makes the keys work but
+they don't do anything, and `acpi_backlight=none` rebinds everything
+to the `backlight_intel` interface.
 
 ### GPU
 
 GPU is probably the most tricky feature to set up in this model.
 
-[[https://wiki.archlinux.org/index.php/bumblebee][the archwiki]] has an article on how to set up Bumblebee in order to get
-the best of both worlds: Integrated graphics and dedicated video
-card. I must say I gave it endless tries to get it working and it -to
-some extent- does work. But only until i close the laptop. It then
-becomes unusable.
+[The archwiki](https://wiki.archlinux.org/index.php/bumblebee) has an article
+on how to set up Bumblebee in order to get the best of both worlds:
+Integrated graphics and dedicated video card. I must say I gave it endless
+tries to get it working and it -to some extent- does work. But only until i
+close the laptop. It then becomes unusable.
 
 I still have problems with this, so i won't be advising on this
 matter. I will say, though, that gaming on a 14 inch laptop is not
