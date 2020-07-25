@@ -9,7 +9,6 @@ module.exports = {
       const slug = createFilePath({
         node,
         getNode,
-        basePath: 'articles',
       })
 
       createNodeField({
@@ -21,9 +20,11 @@ module.exports = {
   },
   createPages: async ({ graphql, actions }) => {
     const { createPage } = actions
-    const query = await graphql(`
-      query articles {
-        allMarkdownRemark {
+    const articlesQuery = await graphql(`
+      query {
+        allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/sources/articles/" } }
+        ) {
           edges {
             node {
               fields {
@@ -35,10 +36,31 @@ module.exports = {
       }
     `)
 
-    query.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const wikiQuery = await graphql(`
+      query wiki {
+        allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/sources/wiki/" } }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `)
+
+    const edges = [
+      ...articlesQuery.data.allMarkdownRemark.edges,
+      ...wikiQuery.data.allMarkdownRemark.edges,
+    ]
+
+    edges.forEach(({ node }) => {
       createPage({
-        path: `/articles${node.fields.slug}`,
-        component: path.resolve('./src/pages/article.tsx'),
+        path: `${node.fields.slug}`,
+        component: path.resolve('./src/templates/article.tsx'),
         context: {
           slug: node.fields.slug,
         },

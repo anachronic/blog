@@ -33,7 +33,7 @@ export const articleQuery = graphql`
       html
       frontmatter {
         title
-        date
+        date(formatString: "YYYY-MM-DD")
         tags
         categories
       }

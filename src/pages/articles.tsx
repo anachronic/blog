@@ -1,6 +1,7 @@
+import { graphql } from 'gatsby'
 import React from 'react'
-import { graphql, Link } from 'gatsby'
 import { ArticlesQuery } from '../../graphql-types'
+import { ArticleList } from '../components/ArticleList'
 import { Layout } from '../components/Layout'
 
 interface Props {
@@ -12,19 +13,7 @@ const Articles: React.FC<Props> = ({ data }) => {
     <Layout>
       <div>
         <h1>Articles</h1>
-        <div className="articles">
-          {data.allMarkdownRemark.edges.map((edge) => (
-            <div key={edge.node.id} className="article-name">
-              <span className="date">{edge.node.frontmatter?.date}</span>
-              <Link
-                to={`/articles${edge.node.fields.slug}`}
-                style={{ marginLeft: '0.3rem' }}
-              >
-                {edge.node.frontmatter.title}
-              </Link>
-            </div>
-          ))}
-        </div>
+        <ArticleList edges={data.allMarkdownRemark.edges} />
       </div>
     </Layout>
   )
