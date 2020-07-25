@@ -17,6 +17,9 @@ export const Header: React.FC = () => {
         <Link className="item" to="/about">
           About
         </Link>
+        <Link className="item" to="/wiki">
+          Wiki
+        </Link>
       </div>
       <div className="rhs">
         <a
