@@ -19,7 +19,14 @@ There's probably a lot more, but with those two it's possible to implement Space
 
 ## Compiling the firmware
 
-I'll update on this, I believe not much is required on the OS.
+After repo is cloned. Set up the repo:
+
+```sh
+$ ./util/qmk_install.sh
+$ make git-submodule
+```
+
+I believe the last one is critical to have the firmware compile. So don't forget it.
 
 The following command is used to compile: `make <keyboard>:<keymap>/<target>`. Sounds a little weird, but in our case, the keyboard is `massdrop`, our keymap is `alt` and the target is my custom layout: `anachronic`.
 
@@ -35,7 +42,7 @@ The regular `make clean` also works.
 
 In order to flash the compiled firmware, we use [mdloader](https://github.com/Massdrop/mdloader), I believe it's maintained by Massdrop. The instructions are there.
 
-1. Get mdloader_mac or the one for w/e you are using. Chmod +x it
+1. Get mdloader_mac or the one for w/e you are using. Chmod +x it. Don't forget the applet file `apple-mdflash.bin`.
 2. If on Mac, we might need to right click and manually open the file to skip apple's notarization
 3. Run `mdloader_mac --first --download <compiled_firmware> --restart`
 4. Hold `Fn + b` for 5 secs or so and we should be good to go. Keyboard will shut lights off and restart. This key corresponds to `MD_BOOT` in the layout.
