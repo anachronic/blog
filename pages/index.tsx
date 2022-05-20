@@ -12,12 +12,13 @@ const IndexPage: React.FC = () => {
       </Helmet>
 
       <Layout>
-          <header className="header">
-      <div className="container">
-        <div className="header-title">Nicolás Salas V.</div>
-          <div className="header-subtitle">A personal website</div>
-      </div>
-    </header>
+        <header className="header">
+          <div className="container">
+            <div className="header-title">Nicolás Salas V.</div>
+            <div className="header-subtitle">A personal website</div>
+          </div>
+        </header>
+
         <section className="container greeting">
           <h1>Hi! I&apos;m Nicolás</h1>
 

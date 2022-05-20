@@ -6,9 +6,11 @@ export const Layout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <>
       <Header />
-        <div className="container main">
-          <main>{children}</main>
-        </div>
+
+      <div className="container main">
+        <main>{children}</main>
+      </div>
+
       <Footer />
     </>
   )
