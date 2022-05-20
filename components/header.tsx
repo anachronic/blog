@@ -6,19 +6,19 @@ export const Header: React.FC = () => {
   return (
     <header className="navbar-top">
       <div className="lhs">
-        <Link className="item" href="/">
-          Home
+        <Link href="/">
+          <a className="item">Home</a>
         </Link>
       </div>
       <div className="middle">
-        <Link className="item" href="/articles">
-          Articles
+        <Link href="/articles">
+          <a className="item">Articles</a>
         </Link>
-        <Link className="item" href="/about">
-          About
+        <Link href="/about">
+          <a className="item">About</a>
         </Link>
-        <Link className="item" href="/wiki">
-          Wiki
+        <Link href="/wiki">
+          <a className="item">Wiki</a>
         </Link>
       </div>
       <div className="rhs">

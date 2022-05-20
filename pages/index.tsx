@@ -1,8 +1,6 @@
 import React from 'react'
-import { Layout } from '../components/layout'
+import { IndexLayout } from '../components/index-layout'
 import { Helmet } from 'react-helmet-async'
-
-// import '../style/globals.scss'
 
 const IndexPage: React.FC = () => {
   return (
@@ -11,7 +9,7 @@ const IndexPage: React.FC = () => {
         <title>Home</title>
       </Helmet>
 
-      <Layout>
+      <IndexLayout>
         <header className="header">
           <div className="container">
             <div className="header-title">Nicolás Salas V.</div>
@@ -45,7 +43,7 @@ const IndexPage: React.FC = () => {
             with GraphQL, Typescript and React.
           </p>
         </section>
-      </Layout>
+      </IndexLayout>
     </>
   )
 }
