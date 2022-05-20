@@ -1,12 +1,16 @@
 import React from 'react'
 import { Layout } from '../components/layout'
+import { Helmet } from 'react-helmet-async'
 
 // import '../style/globals.scss'
 
 const IndexPage: React.FC = () => {
   return (
     <>
-      {/* <SEO title="Home" /> */}
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
+
       <Layout>
           <header className="header">
       <div className="container">
