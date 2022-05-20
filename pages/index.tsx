@@ -1,30 +1,19 @@
-import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
-import { IndexLayout } from '../components/IndexLayout'
-import Main from '../components/Main'
-import { SEO } from '../components/SEO'
-import '../style/globals.scss'
+import { Layout } from '../components/layout'
+
+// import '../style/globals.scss'
 
 const IndexPage: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `)
-
   return (
     <>
-      <SEO title="Home" />
-      <IndexLayout>
-        <Main
-          siteTitle={data.site.siteMetadata.title}
-          siteDescription={data.site.siteMetadata.description}
-        />
+      {/* <SEO title="Home" /> */}
+      <Layout>
+          <header className="header">
+      <div className="container">
+        <div className="header-title">Nicolás Salas V.</div>
+          <div className="header-subtitle">A personal website</div>
+      </div>
+    </header>
         <section className="container greeting">
           <h1>Hi! I&apos;m Nicolás</h1>
 
@@ -51,7 +40,7 @@ const IndexPage: React.FC = () => {
             with GraphQL, Typescript and React.
           </p>
         </section>
-      </IndexLayout>
+      </Layout>
     </>
   )
 }
