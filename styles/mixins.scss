@@ -1,0 +1,9 @@
+@mixin width($percentage) {
+  $width: percentage($percentage/100);
+  width: $width;
+}
+
+@mixin height($percentage) {
+  $height: percentage($percentage/100);
+  height: $height;
+}
