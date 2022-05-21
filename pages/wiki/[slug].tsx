@@ -7,7 +7,10 @@ import { Article } from '../../types/article'
 import { readArticle, readArticles } from '../../util/markdown'
 import { join } from 'path'
 import { Layout } from '../../components/layout'
-import { ArticleProps, ArticleTemplate } from '../../components/article-template'
+import {
+  ArticleProps,
+  ArticleTemplate,
+} from '../../components/article-template'
 
 interface Params extends ParsedUrlQuery {
   slug: string
