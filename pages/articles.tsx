@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const articles = await readArticles('./sources/wiki')
+  const articles = await readArticles('./sources/articles')
 
   return {
     props: {
@@ -24,13 +24,13 @@ const Wiki: React.FC<Props> = ({ articles }) => {
   return (
     <React.Fragment>
       <Helmet>
-        <title>Wiki | Nicolás Salas V.</title>
+        <title>Articles | Nicolás Salas V.</title>
       </Helmet>
 
       <Layout>
-        <h1>Wiki articles</h1>
+        <h1>Articles</h1>
 
-        <ArticleList pathPrefix="wiki" articles={articles} />
+        <ArticleList pathPrefix="articles" articles={articles} />
       </Layout>
     </React.Fragment>
   )
