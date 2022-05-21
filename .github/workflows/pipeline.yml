@@ -1,6 +1,12 @@
-name: Node.js CI
+name: Build & deploy pipeline
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   check-format:
