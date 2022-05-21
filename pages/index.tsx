@@ -6,7 +6,7 @@ const IndexPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Home</title>
+        <title>Nicolás Salas V.&apos;s homepage</title>
       </Helmet>
 
       <IndexLayout>
