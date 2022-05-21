@@ -3,32 +3,15 @@ import React from 'react'
 import { ArticleList } from '../components/article-list'
 import { Layout } from '../components/layout'
 import { Article } from '../types/article'
-import { opendir } from 'fs/promises'
-import { join } from 'path'
-import * as matter from 'gray-matter'
 import { Helmet } from 'react-helmet-async'
+import { readArticles } from '../util/markdown'
 
 interface Props {
   articles: Array<Article>
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const basePath = './sources/wiki/'
-  const dir = await opendir(basePath)
-
-  const articles: Array<Article> = []
-
-  for await (const markdownFile of dir) {
-    const filePath = join(basePath, markdownFile.name)
-    const fileMatter = matter.read(filePath)
-
-    articles.push({
-      date: fileMatter.data.date.toString(),
-      id: markdownFile.name,
-      slug: markdownFile.name,
-      title: fileMatter.data.title,
-    })
-  }
+  const articles = await readArticles('./sources/wiki')
 
   return {
     props: {

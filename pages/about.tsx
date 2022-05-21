@@ -5,6 +5,7 @@ import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkHtml from 'remark-html'
 import { Helmet } from 'react-helmet-async'
+import { readArticle } from '../util/markdown'
 
 interface Props {
   title: string
@@ -12,18 +13,10 @@ interface Props {
 }
 
 export async function getStaticProps() {
-  const file = matter.read('./sources/pages/about.md')
-
-  const parsedContent = await unified()
-    .use(remarkParse)
-    .use(remarkHtml)
-    .process(file.content)
+  const props = await readArticle('./sources/pages/about.md')
 
   return {
-    props: {
-      title: file.data.title,
-      htmlContent: parsedContent.value,
-    },
+    props,
   }
 }
 
