@@ -83,9 +83,35 @@ jobs:
           path: out
           retention-days: 7
 
+  draft-to-netlify:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.ref != 'refs/heads/main'
+    environment: Netlify
+    needs: [build]
+
+    strategy:
+      matrix:
+        node-version:
+          - 18.x
+
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: blog-static
+          path: out
+      - name: Publish to netlify
+        uses: South-Paw/action-netlify-deploy@v1.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+          build-dir: './out'
+          draft: true
+          comment-on-pull-request: true
+
   publish-to-netlify:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment: Netlify
     needs: [build]
 
