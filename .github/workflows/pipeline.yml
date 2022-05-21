@@ -82,3 +82,27 @@ jobs:
           name: blog-static
           path: out
           retention-days: 7
+
+  publish-to-netlify:
+    runs-on: ubuntu-latest
+    environment: Netlify
+    needs: [build]
+
+    strategy:
+      matrix:
+        node-version:
+          - 18.x
+
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: blog-static
+          path: out
+      - name: Publish to netlify
+        uses: South-Paw/action-netlify-deploy@v1.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+          build-dir: './out'
+          comment-on-commit: true
