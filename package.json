@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "check:format": "prettier --check '{components,pages}/**/*.{ts,tsx}'"
+    "check:format": "prettier --check '{components,pages,types}/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "next": "12.1.6",
