@@ -14,7 +14,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const files = await readArticles('./sources/wiki')
+  const files = await readArticles('./sources/articles')
   const routes = files
     .map((file) => ({ slug: file.slug }))
     .map((slugged) => ({ params: slugged }))
@@ -29,14 +29,14 @@ export const getStaticProps: GetStaticProps<ArticleProps, Params> = async ({
   params,
 }) => {
   const { slug } = params!
-  const props = await readArticle(join('./sources/wiki', `${slug}.md`))
+  const props = await readArticle(join('./sources/articles', `${slug}.md`))
 
   return {
     props,
   }
 }
 
-const WikiArticle: React.FC<ArticleProps> = (props) => {
+const BlogArticle: React.FC<ArticleProps> = (props) => {
   const router = useRouter()
   const { slug } = router.query
 
@@ -51,4 +51,4 @@ const WikiArticle: React.FC<ArticleProps> = (props) => {
   )
 }
 
-export default WikiArticle
+export default BlogArticle
