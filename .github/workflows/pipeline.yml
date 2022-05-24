@@ -139,3 +139,16 @@ jobs:
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
           build-dir: './out'
           comment-on-commit: true
+
+  notify-chatops:
+    runs-on: ubuntu-latest
+    environment: Netlify
+    needs: [publish-to-netlify]
+
+    steps:
+      - name: Notify ChatOps
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed. https://anachronic.io. Go ahead and check it out'
