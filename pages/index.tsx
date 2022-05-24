@@ -1,11 +1,11 @@
 import React from 'react'
 import { IndexLayout } from '../components/index-layout'
-import { Helmet } from 'react-helmet-async'
+import Head from 'next/head'
 
 const IndexPage: React.FC = () => {
   return (
     <>
-      <Helmet>
+      <Head>
         <title>Nicolás Salas V.&apos;s homepage</title>
 
         <meta property="og:title" content="Nicolás Salas V." />
@@ -15,7 +15,7 @@ const IndexPage: React.FC = () => {
           property="og:image"
           content="https://avatars.githubusercontent.com/u/3452930?v=4"
         />
-      </Helmet>
+      </Head>
 
       <IndexLayout>
         <header className="header">

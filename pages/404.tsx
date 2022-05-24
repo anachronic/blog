@@ -1,12 +1,12 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import Head from 'next/head'
 import { Layout } from '../components/layout'
 
 const NotFoundPage: React.FC = () => (
   <React.Fragment>
-    <Helmet>
+    <Head>
       <title>Not found 😭 | Nicolás Salas V.</title>
-    </Helmet>
+    </Head>
 
     <Layout>
       <h1>NOT FOUND</h1>

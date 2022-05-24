@@ -3,7 +3,7 @@ import React from 'react'
 import { ArticleList } from '../components/article-list'
 import { Layout } from '../components/layout'
 import { Article } from '../types/article'
-import { Helmet } from 'react-helmet-async'
+import Head from 'next/head'
 import { readArticles } from '../util/markdown'
 
 interface Props {
@@ -23,9 +23,9 @@ export const getStaticProps: GetStaticProps = async () => {
 const Wiki: React.FC<Props> = ({ articles }) => {
   return (
     <React.Fragment>
-      <Helmet>
+      <Head>
         <title>Wiki | Nicolás Salas V.</title>
-      </Helmet>
+      </Head>
 
       <Layout>
         <h1>Wiki articles</h1>

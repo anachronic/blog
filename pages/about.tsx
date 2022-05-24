@@ -4,7 +4,7 @@ import * as matter from 'gray-matter'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkHtml from 'remark-html'
-import { Helmet } from 'react-helmet-async'
+import Head from 'next/head'
 import { readArticle } from '../util/markdown'
 
 interface Props {
@@ -23,9 +23,9 @@ export async function getStaticProps() {
 const AboutPage: React.FC<Props> = ({ title, htmlContent }) => {
   return (
     <React.Fragment>
-      <Helmet>
+      <Head>
         <title>About | Nicolás Salas V.</title>
-      </Helmet>
+      </Head>
 
       <Layout>
         <h1>{title}</h1>
