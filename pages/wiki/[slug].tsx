@@ -50,8 +50,14 @@ const WikiArticle: React.FC<ArticleProps> = (props) => {
 
         <meta property="og:title" content={props.title} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://www.anachronic.io/articles/${props.slug}`} />
-        <meta property="og:image" content="https://avatars.githubusercontent.com/u/3452930?v=4" />
+        <meta
+          property="og:url"
+          content={`https://www.anachronic.io/articles/${props.slug}`}
+        />
+        <meta
+          property="og:image"
+          content="https://avatars.githubusercontent.com/u/3452930?v=4"
+        />
       </Helmet>
 
       <ArticleTemplate {...props} />

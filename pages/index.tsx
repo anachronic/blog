@@ -11,7 +11,10 @@ const IndexPage: React.FC = () => {
         <meta property="og:title" content="Nicolás Salas V." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://www.anachronic.io/" />
-        <meta property="og:image" content="https://avatars.githubusercontent.com/u/3452930?v=4" />
+        <meta
+          property="og:image"
+          content="https://avatars.githubusercontent.com/u/3452930?v=4"
+        />
       </Helmet>
 
       <IndexLayout>
