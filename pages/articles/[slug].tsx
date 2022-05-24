@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { ParsedUrlQuery } from 'querystring'
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import Head from 'next/head'
 import { Article } from '../../types/article'
 import { readArticle, readArticles } from '../../util/markdown'
 import { join } from 'path'
@@ -45,7 +45,7 @@ const BlogArticle: React.FC<ArticleProps> = (props) => {
 
   return (
     <React.Fragment>
-      <Helmet>
+      <Head>
         <title>{props.title} | Nicolás Salas V.</title>
 
         <meta property="og:title" content={props.title} />
@@ -58,7 +58,7 @@ const BlogArticle: React.FC<ArticleProps> = (props) => {
           property="og:image"
           content="https://avatars.githubusercontent.com/u/3452930?v=4"
         />
-      </Helmet>
+      </Head>
 
       <ArticleTemplate {...props} />
     </React.Fragment>
