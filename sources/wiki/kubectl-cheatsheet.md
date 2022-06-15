@@ -1,7 +1,7 @@
 ---
 title: kubectl cheatsheet
 date: 2022-05-21
-update-date: 2022-05-23
+update-date: 2022-06-14
 tags: devops
 ---
 
@@ -38,6 +38,7 @@ I'm no expert to decide whether this is a good thing. I imagine that in a seriou
 
 - `kubectl create secret docker-registry <secret_name> --docker-username=<user> --docker-password=<password> --docker-server=<server>`
 - 👆 don't forget to set `imagePullSecrets` in your pod specs!
+- `kubectl create secret generic <secret_name> --from-literal=<secret_key>=<secret_value>`. Might need to wrap some of these with double quotes. Repeat the `--from-literal` for more key-value pairs. **Include** the `--from-literal` each time a new pair is needed.
 
 ghcr.io is particularly annoying because they want you to create a personal access token (which is account-bound) to pull images. Afaik, it cannot be repo-bound. Not too good 😕
 
@@ -45,6 +46,5 @@ ghcr.io is particularly annoying because they want you to create a personal acce
 ## Stuff I couldn't find 👇
 
 - creating a configmap from file
-- creating secrets from literals. This was always a serious pain in the ass. I should figure out a better way than `--from-literal`
 - 👆 use `opaque` secrets for general secrets (like db credentials). For container registries (like gitlab or ghcr.io see #secrets above)
 - everything about vcs and pvcs. I couldn't get myself to understand those in depth.
