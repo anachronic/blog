@@ -46,5 +46,4 @@ ghcr.io is particularly annoying because they want you to create a personal acce
 ## Stuff I couldn't find 👇
 
 - creating a configmap from file
-- 👆 use `opaque` secrets for general secrets (like db credentials). For container registries (like gitlab or ghcr.io see #secrets above)
 - everything about vcs and pvcs. I couldn't get myself to understand those in depth.
