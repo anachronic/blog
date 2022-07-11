@@ -22,14 +22,14 @@ Installing arch linux on UEFI systems, these notes are copied from some old orgf
   - `mount /dev/nvme0n1p1 /mnt/boot`
   - `mount /dev/nvme0n1p3 /mnt/home/nsalas/perma`
 5. Had something about mirrors, but that has changed over time. Will update
-6. Install the base system `pacstrap /mnt base base-devel git neovim curl wget sudo`
+6. Install the base system `pacstrap /mnt linux base base-devel git neovim curl wget sudo`
 7. fstab: `genfstab -U /mnt >> /mnt/etc/fstab`. **Check it**.
 8. chroot: `arch-chroot /mnt`
 9. timezone: `ln -sf /usr/share/zoneinfo/America/Santiago /etc/localtime`
 10. `hwclock --systohc`. Dunno. w/e
-11. `echo en_US.UTF-8 > /etc/locale.gen`. I've needed `es_CL.UTF-8` in the past. English only is fine
+11. `nvim /etc/locale.gen` and uncomment `en_US.UTF-8 UTF-8` I've needed `es_CL.UTF-8` in the past but recently english only is fine
 12. `locale-gen`
-13. `nvim /etc/locale.conf` and uncomment `en_US.UTF-8`
+13. `echo LANG=en_US.UTF-8 > /etc/locale.conf`
 14. `echo minji > /etc/hostname` or w/e hostname. She's the best tho
 15. Edit `/etc/hosts`:
   ```
