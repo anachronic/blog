@@ -1,6 +1,6 @@
 ---
 title: Moving some services to Vultr
-date: 2022-07-13
+date: 2022-07-16
 tags: devops
 categories: devops
 ---
@@ -30,10 +30,6 @@ wanna get into the monetary aspect.
 At the end of the day, I ended up with *a lot* of complex infrastructure for
 4/5 services I need. Some of those don't even need to communicate between them.
 
-I intended to make this article as a lookback on how I've ended up learning
-some of the knowledge I have and how I reverted back my services to plain old
-VMs.
-
 All that complex structure needs to go away. I really don't want to spend more
 than a couple dollars each month for a service that barely gets 1/2 requests
 **per hour**. There's no need to scale.
@@ -43,6 +39,11 @@ For now, subscribing to releases in github is more than enough for what I need.
 
 I was paying around $50 total last month for one of the services I have.
 Hopefully after this blog post I end up reducing it to $6 :)
+
+And so I intend to make this article as a lookback on how I've ended up
+learning some of the knowledge I have and how I reverted back my services to
+plain old VMs. Kind of like a self-reflection and a bit of a guide, if I ever
+need to come back to it.
 
 ## Current infrastructure
 
@@ -121,7 +122,7 @@ wrong, a serious project should always use those services. It should at least
 if you hope to grow a business.
 
 But I'm not. I'm running some random services for me and my family. Wouldn't it
-be better (and simpler, for that matter) that I took advantage or the storage
+be better (and simpler, for that matter) that I took advantage of the storage
 **that's already there** in my VM?. So yeah, I wanted to run my service with
 sqlite. In the end I couldn't.
 
@@ -143,7 +144,7 @@ docker page in the debian wiki](https://wiki.debian.org/Docker) where they tell
 you that it's a little dangerous. So I figured I could use
 [podman](https://podman.io/) instead, for a rootless setup.
 
-All of this work, as you might expect, was full or trial and error. Hence the
+All of this work, as you might expect, was full of trial and error. Hence the
 urge to write this article. So I'm just going to document (mostly) the final
 result.
 
@@ -195,9 +196,10 @@ basic things:
 1. Have it start automatically whenever the system starts
 2. Restart the containers when they fail
 
-These are two **very** basic things for any server and I'm fine with it. I'm
-not concerned about 100% uptime or anything like that. If the server takes 1
-minute to restart, that's fine with me as long as the servers are restarted.
+These are two **very** basic things for any server. I'm not concerned about
+100% uptime or anything like that. If the server takes 1 minute to restart,
+that's fine with me as long as the servers start on their own without me having
+to ssh into the machine
 
 For that I did a couple of things:
 
