@@ -188,6 +188,38 @@ Then came the problems.
   to this machine? we'll see.
 - Ended up having to tinker with ufw+vultr firewall to get everything set up
 
+Although that process left me with a running setup, I highly dislike fragile
+solutions to these problems and I'd like it if my system would do two very
+basic things:
+
+1. Have it start automatically whenever the system starts
+2. Restart the containers when they fail
+
+These are two **very** basic things for any server and I'm fine with it. I'm
+not concerned about 100% uptime or anything like that. If the server takes 1
+minute to restart, that's fine with me as long as the servers are restarted.
+
+For that I did a couple of things:
+
+- Moved Caddy to the host machine so that I don't have to tinker with kernel
+  parameters. It has a systemd unit.
+- Used `podman generate systemd --new --name <container>` to generate systemd
+  unit files. This approach requires me to have the containers up alredy, and
+  that can be done with `podman-compose`, which I already had set up
+- Enabled [systemd user unit
+  lingering](https://wiki.archlinux.org/title/systemd/User#Automatic_start-up_of_systemd_user_instances).
+  This is useful when we need to run user units on system startup instead of
+  user login. It's exactly what I want
+- Used the generated files as a *user* systemd unit file and copied them to
+  `~/.config/systemd/user/`. After that they can be set up like a user systemd
+  unit is started: `systemctl --user enable <service>.service`
+
+That leaves me with a bit of an auto-recovery setup that fits my needs. It's
+cheap and reasonable enough and I'm well aware of it pitfalls. Setup is kind of
+long, requires a lot of tinkering within an ssh server. But with enough
+tinkering, I hopefully don't have to keep sshing into the system. It's also
+more secure than using docker directly
+
 ## Lookback
 
 Rather than the last part of this article, I want to talk about the first part:
