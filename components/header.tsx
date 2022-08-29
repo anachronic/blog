@@ -26,12 +26,8 @@ export const Header: React.FC = () => {
         <a
           href="https://github.com/anachronic/blog"
           className="item"
-          css={{
-            display: 'inline-flex',
-            height: '100%',
-          }}
         >
-          <IoLogoGithub size="1.3rem" />
+          <IoLogoGithub title="Github icon" size="1.4em" />
         </a>
       </NavRight>
     </Nav>
