@@ -10,8 +10,8 @@
     "check:format": "prettier --check '{components,pages,types}/**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "date-fns": "^2.29.1",
-    "next": "^12.2.3",
+    "date-fns": "^2.29.2",
+    "next": "^12.2.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-icons": "^4.4.0"
@@ -21,12 +21,12 @@
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.4",
     "eslint": "8.15.0",
-    "eslint-config-next": "^12.2.3",
+    "eslint-config-next": "^12.2.5",
     "gray-matter": "^4.0.3",
     "prettier": "^2.7.1",
     "remark-html": "^15.0.1",
     "remark-parse": "^10.0.1",
-    "sass": "^1.54.0",
+    "sass": "^1.54.5",
     "typescript": "4.6.4",
     "unified": "^10.1.2"
   }
