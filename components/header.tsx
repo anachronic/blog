@@ -1,16 +1,17 @@
 import React from 'react'
 import { IoLogoGithub } from 'react-icons/io'
 import Link from 'next/link'
+import { Nav, NavLeft, NavRight, NavMiddle } from '../lib/nav'
 
 export const Header: React.FC = () => {
   return (
-    <header className="navbar-top">
-      <div className="lhs">
+    <Nav>
+      <NavLeft>
         <Link href="/">
           <a className="item">Home</a>
         </Link>
-      </div>
-      <div className="middle">
+      </NavLeft>{' '}
+      <NavMiddle>
         <Link href="/articles">
           <a className="item">Articles</a>
         </Link>
@@ -20,20 +21,19 @@ export const Header: React.FC = () => {
         <Link href="/wiki">
           <a className="item">Wiki</a>
         </Link>
-      </div>
-      <div className="rhs">
+      </NavMiddle>
+      <NavRight>
         <a
           href="https://github.com/anachronic/blog"
           className="item"
-          style={{
+          css={{
             display: 'inline-flex',
-            alignItems: 'center',
             height: '100%',
           }}
         >
-          <IoLogoGithub size="1.3rem" style={{ display: 'inline' }} />
+          <IoLogoGithub size="1.3rem" />
         </a>
-      </div>
-    </header>
+      </NavRight>
+    </Nav>
   )
 }
