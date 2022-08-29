@@ -1,12 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
 import { ParsedUrlQuery } from 'querystring'
 import React from 'react'
 import Head from 'next/head'
-import { Article } from '../../types/article'
 import { readArticle, readArticles } from '../../util/markdown'
 import { join } from 'path'
-import { Layout } from '../../components/layout'
 import {
   ArticleProps,
   ArticleTemplate,
@@ -40,9 +37,6 @@ export const getStaticProps: GetStaticProps<ArticleProps, Params> = async ({
 }
 
 const BlogArticle: React.FC<ArticleProps> = (props) => {
-  const router = useRouter()
-  const { slug } = router.query
-
   return (
     <React.Fragment>
       <Head>
