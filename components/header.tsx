@@ -23,10 +23,7 @@ export const Header: React.FC = () => {
         </Link>
       </NavMiddle>
       <NavRight>
-        <a
-          href="https://github.com/anachronic/blog"
-          className="item"
-        >
+        <a href="https://github.com/anachronic/blog" className="item">
           <IoLogoGithub title="Github icon" size="1.4em" />
         </a>
       </NavRight>
