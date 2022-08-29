@@ -10,6 +10,8 @@
     "check:format": "prettier --check '{components,pages,types}/**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
     "date-fns": "^2.29.2",
     "next": "^12.2.5",
     "react": "18.1.0",
