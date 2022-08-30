@@ -6,6 +6,7 @@ const globalStyles = css`
   a {
     text-decoration: none;
     color: #3273dc;
+    cursor: pointer;
 
     &:hover {
       text-decoration: underline;
