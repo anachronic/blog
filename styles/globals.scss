@@ -38,16 +38,6 @@
   font-size: 1.5em;
 }
 
-a {
-  text-decoration: none;
-  color: $skyblue;
-
-  &:hover {
-    text-decoration: underline;
-    color: $skyblue;
-  }
-}
-
 .articles {
   .article-name {
     font-size: 1.2rem;
