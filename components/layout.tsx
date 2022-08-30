@@ -4,7 +4,6 @@ import { Footer } from './footer'
 import styled from '@emotion/styled'
 import { Container } from '../lib/container'
 
-
 const MainContainer = styled(Container)`
   margin-top: 1rem;
   font-size: 1.5em;
