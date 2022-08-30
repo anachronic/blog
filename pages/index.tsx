@@ -1,6 +1,36 @@
 import React from 'react'
 import { IndexLayout } from '../components/index-layout'
 import Head from 'next/head'
+import styled from '@emotion/styled'
+import { Container } from '../lib/container'
+
+const Header = styled.div`
+  background-color: #7957d5;
+  color: black;
+  min-height: 20vh;
+  display: flex;
+  flex-grow: 1;
+
+  & ${Container} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+`
+
+const HeaderTitle = styled.div`
+  ${Header} ${Container} & {
+    color: #e6e6e6;
+    font-size: 3em;
+  }
+`
+
+const HeaderSubtitle = styled.div`
+  ${Header} ${Container} & {
+    color: #e6e6e6;
+    font-size: 1.5em;
+  }
+`
 
 const IndexPage: React.FC = () => {
   return (
@@ -18,14 +48,14 @@ const IndexPage: React.FC = () => {
       </Head>
 
       <IndexLayout>
-        <header className="header">
-          <div className="container">
-            <div className="header-title">Nicolás Salas V.</div>
-            <div className="header-subtitle">A personal website</div>
-          </div>
-        </header>
+        <Header>
+          <Container>
+            <HeaderTitle>Nicolás Salas V.</HeaderTitle>
+            <HeaderSubtitle>A personal website</HeaderSubtitle>
+          </Container>
+        </Header>
 
-        <section className="container greeting">
+        <Container as="section" css={{ fontSize: '1.3rem' }}>
           <h1>Hi! I&apos;m Nicolás</h1>
 
           <p>
@@ -50,7 +80,7 @@ const IndexPage: React.FC = () => {
             </a>{' '}
             with GraphQL, Typescript and React.
           </p>
-        </section>
+        </Container>
       </IndexLayout>
     </>
   )
