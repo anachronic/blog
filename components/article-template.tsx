@@ -16,10 +16,7 @@ export const ArticleTemplate: React.FC<ArticleProps> = ({
       <div>
         <h1>{title}</h1>
         <h4>{date}</h4>
-        <div
-          css={{ lineHeight: '1.5' }}
-          dangerouslySetInnerHTML={{ __html: htmlContent }}
-        ></div>
+        <div dangerouslySetInnerHTML={{ __html: htmlContent }}></div>
       </div>
     </Layout>
   )
