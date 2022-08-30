@@ -28,17 +28,6 @@
   }
 }
 
-.articles {
-  .article-name {
-    font-size: 1.2rem;
-    padding: 7px;
-
-    &:not(:last-child) {
-      border-bottom: 1px dashed #ccc;
-    }
-  }
-}
-
 .greeting {
   font-size: 1.3rem;
 }

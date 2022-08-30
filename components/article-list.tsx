@@ -1,6 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
 import { Article } from '../types/article'
+import styled from '@emotion/styled'
+
+const ArticleRow = styled.div`
+  font-size: 1.2rem;
+  padding: 7px;
+
+  &:not(:last-child) {
+    border-bottom: 1px dashed #ccc;
+  }
+`
 
 interface Props {
   articles: Array<Article>
@@ -9,14 +19,15 @@ interface Props {
 
 export const ArticleList: React.FC<Props> = ({ articles, pathPrefix }) => {
   return (
-    <div className="articles">
+    <div>
       {articles.map((article) => (
-        <div key={article.slug} className="article-name">
+        <ArticleRow key={article.slug}>
           <span className="date">{article.date}</span>
+
           <Link href={`/${pathPrefix}/${article.slug}`}>
-            <a style={{ marginLeft: '0.3rem' }}>{article.title}</a>
+            <a css={{ marginLeft: '0.3rem' }}>{article.title}</a>
           </Link>
-        </div>
+        </ArticleRow>
       ))}
     </div>
   )
