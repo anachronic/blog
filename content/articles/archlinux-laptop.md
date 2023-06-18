@@ -1,7 +1,7 @@
 ---
 title: Configuring an Asus Zenbook with Arch Linux
 date: 2016-09-25
-tags: archlinux,linux
+tags: [archlinux,linux]
 categories: linux
 ---
 
