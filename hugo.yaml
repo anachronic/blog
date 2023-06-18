@@ -7,13 +7,17 @@ menu:
   main:
     - name: Home
       url: ""
+      weight: 1
     - name: About
       url: about/
+      weight: 2
     - name: Tags
       url: tags/
+      weight: 3
     - name: Wiki
       url: wiki/
-    - name: Subscribe
+      weight: 4
+    - name: RSS
       url: index.xml
 
 taxonomies:
