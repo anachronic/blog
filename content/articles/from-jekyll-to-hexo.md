@@ -1,7 +1,7 @@
 ---
 title: From Jekyll to Hexo
 date: 2017-07-02
-tags: blogging,jekyll,hexo,rant,emacs,org-mode
+tags: [blogging, jekyll, hexo, rant, emacs, org-mode]
 categories: blogging
 ---
 
